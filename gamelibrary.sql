@@ -114,7 +114,7 @@ CREATE TABLE REF_Methods (
 DROP TABLE IF EXISTS Users;
 CREATE TABLE Users (
 	user_id INT(5) AUTO_INCREMENT PRIMARY KEY,
-    wallet_id INT(12),
+    wallet_id INT(5),
     first_name VARCHAR(50),
     last_name VARCHAR(50),
     birth_date DATE,
