@@ -15,7 +15,7 @@ USE gamelibrary;
 */
 
 -- Games Table
--- INSERT INTO Games (genre_id, platform_id, release_date, developer, publisher, availability, price) VALUES (...), (...);
+-- INSERT INTO Games (release_date, developer, publisher, availability, price) VALUES (...), (...);
 DROP TABLE IF EXISTS Games;
 CREATE TABLE Games (
 	game_id INT(5) AUTO_INCREMENT PRIMARY KEY,
@@ -23,7 +23,7 @@ CREATE TABLE Games (
     developer VARCHAR(50),
     publisher VARCHAR(50),
     availability BOOLEAN,
-    price DECIMAL(5,2),
+    price DECIMAL(5,2)
 ) AUTO_INCREMENT = 100;
 
 -- Patches Table
