@@ -19,15 +19,11 @@ USE gamelibrary;
 DROP TABLE IF EXISTS Games;
 CREATE TABLE Games (
 	game_id INT(5) AUTO_INCREMENT PRIMARY KEY,
-    genre_id INT(5),
-    platform_id INT(5),
     release_date DATE,
     developer VARCHAR(50),
     publisher VARCHAR(50),
     availability BOOLEAN,
     price DECIMAL(5,2),
-    FOREIGN KEY (genre_id) REFERENCES Game_Genres(genre_id),
-    FOREIGN KEY (platform_id) REFERENCES Game_Platforms(platform_id)
 ) AUTO_INCREMENT = 100;
 
 -- Patches Table
