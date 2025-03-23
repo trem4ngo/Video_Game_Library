@@ -19,7 +19,7 @@ USE gamelibrary;
 DROP TABLE IF EXISTS Games;
 CREATE TABLE Games (
 	game_id INT(5) AUTO_INCREMENT PRIMARY KEY,
-    game_name VARCHAR (50),
+    game_name VARCHAR(50),
     release_date DATE,
     developer VARCHAR(50),
     publisher VARCHAR(50),
