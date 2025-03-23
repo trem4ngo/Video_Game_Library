@@ -93,8 +93,11 @@ CREATE TABLE Game_Platforms (
     FOREIGN KEY (platform_id) REFERENCES REF_Platforms(platform_id)
 );
 
+SELECT *
+FROM Games;
+
 -- Transactions Table
--- INSERT INTO Transactions (game_id, user_id, payment_id, transaction_amount, transaction_date, online_url, transaction_status) VALUES (...), (...);
+-- INSERT INTO Transactions (game_id, user_id, method_id, transaction_amount, transaction_date, online_url, transaction_status) VALUES (...), (...);
 DROP TABLE IF EXISTS Transactions;
 CREATE TABLE Transactions (
 	transaction_id INT(5) AUTO_INCREMENT PRIMARY KEY,

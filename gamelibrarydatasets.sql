@@ -19,7 +19,7 @@ VALUES
 ('macOS', 'PC'),
 ('Linux', 'PC'),
 ('PlayStation 5', 'Console'),
-('Xbox', 'Console'),
+('Xbox 360', 'Console'),
 ('Nintendo Switch', 'Console'),
 ('iOS', 'Mobile'),
 ('Android', 'Mobile');
@@ -67,15 +67,13 @@ VALUES (2089.13,(SELECT user_id FROM Users WHERE first_name = 'Christian' LIMIT 
 INSERT INTO Wallets (wallet_balance, user_id)
 VALUES (14328.15,(SELECT user_id FROM Users WHERE first_name = 'Marian' LIMIT 1));
 
--- One by One Patches Insertion
+-- Patches Insertion
 INSERT INTO Patches (game_id, patch_title, patch_date, patch_time, patch_description)
 VALUES ((SELECT game_id FROM Games WHERE game_name = 'Left 4 Dead 2'), '2.2.4.3', '2024-12-03', '03:55:00', 
 'An update has been released for Left 4 Dead 2. - Fixed some exploits used to crash remote servers.'),
 ((SELECT game_id FROM Games WHERE game_name = 'Left 4 Dead 2'), '2.2.4.2', '2024-10-25', '04:58:00', 
-'Fixed several crash and remote code execution exploits.Fixed a crash on some NVIDIA graphics cards when shader detail is set to High.');
-
-INSERT INTO Patches (game_id, patch_title, patch_date, patch_time, patch_description)
-VALUES((SELECT game_id FROM Games WHERE game_name = 'Genshin Impact'), 'Moonlight Amidst Dreams', '2025-02-12', '06:00:00', 
+'Fixed several crash and remote code execution exploits.Fixed a crash on some NVIDIA graphics cards when shader detail is set to High.'),
+((SELECT game_id FROM Games WHERE game_name = 'Genshin Impact'), 'Moonlight Amidst Dreams', '2025-02-12', '06:00:00', 
 'New Characters: Embrace of Enchanting Dreams" and Yumemizuki Mizuki (5-Star Anemo Catalyst).
 New Weapons: Sunny Morning Sleep-In (5-Star Catalyst) and Tamayuratei no Ohanashi (4-Star Polearm).
 Event Wishes: Phase I - Dawns Drifting Reverie (Yumemizuki Mizuki) and Romaritime Meluserenity (Sigewinne) &
@@ -85,159 +83,99 @@ Phase II - Chanson of Many Waters (Furina)and Tempestuous Destiny (Wriothesley).
 "Obsidian Opalstar" Citlali (5-Star Cryo Catalyst), and "Spring Woven From Jade" Lan Yan (4-Star Anemo Catalyst).
 New Weapons: A Thousand Blazing Suns (5-Star Claymore) and Starcallers Watch (5-Star Catalyst).
 Event Wishes: Phase I - Ancient Flame Ablaze (Mavuika) and Starry Nights Whispers (Citlali)
-Phase II - The Hearths Ashen Shadow (Arlecchino & Lan Yan)');
-
-INSERT INTO Patches (game_id, patch_title, patch_date, patch_time, patch_description)
-VALUES ((SELECT game_id FROM Games WHERE game_name = 'Minecraft'), '1.21.62', '2025-02-25', 
+Phase II - The Hearths Ashen Shadow (Arlecchino & Lan Yan)'),
+((SELECT game_id FROM Games WHERE game_name = 'Minecraft: Bedrock Edition'), '1.21.62', '2025-02-25', '00:00:00',
 'Gameplay: Fixed an issue where attacking a mob while sprint jumping would remove all player momentum (MCPE-189501) 
 Fixed an issue where laggy players fighting would occasionally not be able to hit each other (MCPE-190552), 
 Fixed an issue where Player collision box would sometimes be incorrect after using a bed (MCPE-190604)'),
-((SELECT game_id FROM Games WHERE game_name = 'Minecraft'), '1.21.51', '2024-12-11', 
+((SELECT game_id FROM Games WHERE game_name = 'Minecraft: Bedrock Edition'), '1.21.51', '2024-12-11', '00:00:00',
 'General: Fixed several crashes that could occur during gameplay, Fixed issue where some shaped recipes were not parsing properly, 
-Fixed issue where legacy data driven block did not apply the render layer from the material instances component');
-
-SELECT game_id FROM Games WHERE game_name = 'NBA 2k24';
-INSERT INTO Patches (game_id, patch_title, patch_date, patch_time, patch_description)
-VALUES
-('Season 5', 2025-02-23, '08:00:00', 'Various improvements to performance, stability, 
-and visuals have been made to enhance the overall experience in the City and throughout MyCAREER'),
-('Season 4', 2025-01-12, '8:00:00', 'The New York Knicks PA announcer will now make calls for the home team with the proper intensity
+Fixed issue where legacy data driven block did not apply the render layer from the material instances component'),
+((SELECT game_id FROM Games WHERE game_name = 'NBA 2k24'), 'Season 5', '2025-02-23', '08:00:00', 
+'Various improvements to performance, stability, and visuals have been made to enhance the overall experience in the City and throughout MyCAREER'),
+((SELECT game_id FROM Games WHERE game_name = 'NBA 2k24'), 'Season 4', '2025-01-12', '8:00:00', 'The New York Knicks PA announcer will now make calls for the home team with the proper intensity
 The following players have had general likeness updates or adjustments made: Chet Holmgren, Christie Sides (new player scan), 
-Victor Wembanyama (default hair update), Han Xu (new player scan)');
+Victor Wembanyama (default hair update), Han Xu (new player scan)'),
+((SELECT game_id FROM Games WHERE game_name = 'Dota 2'), '7.38b Gameplay Patch', '2025-03-05', '12:00:00', 'Patch 7.38b is out now, along with a new Dota Plus season. 
+In addition, over the last few days we have addressed the following issues: Fixed Clinkz Burning Army skeletons being able to auto-cast Tar Bomb,
+Fixed Templar Assassin Hidden Reach effects being visible to enemies, Fixed Sven Level 10 Talent +10% Vanquisher Bonus Damage not working properly, etc.'),
+((SELECT game_id FROM Games WHERE game_name = 'Dota 2'), '7.37e', '2024-11-20', '12:00:00', 'Patch 7.37e is out now. Harpy Stormcrafter: Chain Lightning Mana Cost increased from 50 to 60.
+Gleipnir: Health bonus decreased from 350 to 300, Eternal Chains damage decreased from 180 to 165. Guardian Greaves: Mend health restored decreased from 350 to 325');
 
-SELECT game_id FROM Games WHERE game_name = 'Dota 2';
-INSERT INTO Patches (game_id, patch_title, patch_date, patch_time, patch_description)
-VALUES
-('7.38b Gameplay Patch', 2025-03-05, '12:00:00', 'Patch 7.38b is out now, along with a new Dota Plus season. 
-In addition, over the last few days we have addressed the following issues:
-Fixed Clinkz Burning Army skeletons being able to auto-cast Tar Bomb,
-Fixed Templar Assassin Hidden Reach effects being visible to enemies,
-Fixed Sven Level 10 Talent +10% Vanquisher Bonus Damage not working properly, etc.'),
-('7.37e', 2024-11-20, '12:00:00', 'Patch 7.37e is out now. 
-Harpy Stormcrafter: Chain Lightning Mana Cost increased from 50 to 60.
-Gleipnir: Health bonus decreased from 350 to 300, Eternal Chains damage decreased from 180 to 165.
-Guardian Greaves: Mend health restored decreased from 350 to 325');
-
--- One by one games_owned insertion of data sets. Execute every line.
-SELECT game_id FROM Games WHERE game_name = 'Left 4 Dead 2';
-SELECT user_id FROM Users WHERE first_name = 'Marian' AND last_name = 'Salazar';
-INSERT INTO Games_Owned (user_id, game_id) VALUES (user_id, games_id);
-SELECT game_id FROM Games WHERE game_name = 'Minecraft: Bedrock Edition';
-INSERT INTO Games_Owned (user_id, game_id) VALUES (user_id, games_id);
-
-SELECT game_id FROM Games WHERE game_name = 'Genshin Impact';
-SELECT user_id FROM Users WHERE contact_email = 'erika_chua@yahoo.com';
-INSERT INTO Games_Owned (user_id, game_id) VALUES (user_id, games_id);
-
-SELECT game_id FROM Games WHERE game_name = 'NBA 2k24';
-SELECT user_id FROM Users WHERE contact_email = 'maximo19@gmail.com';
-INSERT INTO Games_Owned (user_id, game_id) VALUES (user_id, games_id);
-
-SELECT game_id FROM Games WHERE game_name = 'Dota 2';
-SELECT user_id FROM Users WHERE first_name = 'Christian' AND last_name = 'Tan';
-INSERT INTO Games_Owned (user_id, game_id) VALUES (user_id, games_id);
-
-SELECT user_id FROM Users WHERE first_name = 'Francisco' AND last_name = 'Manuel';
-SELECT game_id FROM Games WHERE game_name = 'Dota 2';
-INSERT INTO Games_Owned (user_id, game_id) VALUES (user_id, games_id);
-SELECT game_id FROM Games WHERE game_name = 'NBA 2k24';
-INSERT INTO Games_Owned (user_id, game_id) VALUES (user_id, games_id);
+-- Games_Owned Data Sets
+INSERT INTO Games_Owned (user_id, game_id) 
+VALUES ((SELECT user_id FROM Users WHERE first_name = 'Marian' AND last_name = 'Salazar'), (SELECT game_id FROM Games WHERE game_name = 'Left 4 Dead 2')),
+((SELECT user_id FROM Users WHERE first_name = 'Marian' AND last_name = 'Salazar'), (SELECT game_id FROM Games WHERE game_name = 'Minecraft: Bedrock Edition')),
+((SELECT user_id FROM Users WHERE contact_email = 'erika_chua@yahoo.com'), (SELECT game_id FROM Games WHERE game_name = 'Genshin Impact')),
+((SELECT user_id FROM Users WHERE contact_email = 'maximo19@gmail.com'), (SELECT game_id FROM Games WHERE game_name = 'NBA 2k24')),
+((SELECT user_id FROM Users WHERE first_name = 'Christian' AND last_name = 'Tan'), (SELECT game_id FROM Games WHERE game_name = 'Dota 2')),
+((SELECT user_id FROM Users WHERE first_name = 'Francisco' AND last_name = 'Manuel'), (SELECT game_id FROM Games WHERE game_name = 'Minecraft: Bedrock Edition')),
+((SELECT user_id FROM Users WHERE first_name = 'Francisco' AND last_name = 'Manuel'), (SELECT game_id FROM Games WHERE game_name = 'NBA 2k24'));
 
 -- Game_Genres Data Sets
-SELECT game_id FROM Games WHERE game_name = 'NBA 2k24';
-SELECT genre_id FROM Game_Genres WHERE genre_name = 'Sports';
-INSERT INTO Game_Genres (game_id, genre_id) VALUES (game_id, genre_id);
-SELECT genre_id FROM Game_Genres WHERE genre_name = 'Simulation';
-INSERT INTO Game_Genres (game_id, genre_id) VALUES (game_id, genre_id);
-SELECT genre_id FROM Game_Genres WHERE genre_name = 'Adventure';
-INSERT INTO Game_Genres (game_id, genre_id) VALUES (game_id, genre_id);
-
-SELECT game_id FROM Games WHERE game_name = 'Left 4 Dead 2';
-SELECT genre_id FROM Game_Genres WHERE genre_name = 'First Person Shooter';
-INSERT INTO Game_Genres (game_id, genre_id) VALUES (game_id, genre_id);
-SELECT genre_id FROM Game_Genres WHERE genre_name = 'Survival';
-INSERT INTO Game_Genres (game_id, genre_id) VALUES (game_id, genre_id);
-SELECT genre_id FROM Game_Genres WHERE genre_name = 'First Person Shooter';
-INSERT INTO Game_Genres (game_id, genre_id) VALUES (game_id, genre_id);
-
-SELECT game_id FROM Games WHERE game_name = 'Minecraft';
-SELECT genre_id FROM Game_Genres WHERE genre_name = 'Sandbox';
-INSERT INTO Game_Genres (game_id, genre_id) VALUES (game_id, genre_id);
-SELECT genre_id FROM Game_Genres WHERE genre_name = 'Adventure';
-INSERT INTO Game_Genres (game_id, genre_id) VALUES (game_id, genre_id);
-SELECT genre_id FROM Game_Genres WHERE genre_name = 'Survival';
-INSERT INTO Game_Genres (game_id, genre_id) VALUES (game_id, genre_id);
-SELECT genre_id FROM Game_Genres WHERE genre_name = 'Simulation';
-INSERT INTO Game_Genres (game_id, genre_id) VALUES (game_id, genre_id);
-
-SELECT game_id FROM Games WHERE game_name = 'Dota 2';
-SELECT genre_id FROM Game_Genres WHERE genre_name = 'Action';
-INSERT INTO Game_Genres (game_id, genre_id) VALUES (game_id, genre_id);
-SELECT genre_id FROM Game_Genres WHERE genre_name = 'Strategy';
-INSERT INTO Game_Genres (game_id, genre_id) VALUES (game_id, genre_id);
-
-SELECT game_id FROM Games WHERE game_name = 'Genshin Impact';
-SELECT genre_id FROM Game_Genres WHERE genre_name = 'Adventure';
-INSERT INTO Game_Genres (game_id, genre_id) VALUES (game_id, genre_id);
-SELECT genre_id FROM Game_Genres WHERE genre_name = 'Role Playing Game';
-INSERT INTO Game_Genres (game_id, genre_id) VALUES (game_id, genre_id);	
-SELECT genre_id FROM Game_Genres WHERE genre_name = 'Puzzle';
-INSERT INTO Game_Genres (game_id, genre_id) VALUES (game_id, genre_id);	
+INSERT INTO Game_Genres (game_id, genre_id) 
+VALUES ((SELECT game_id FROM Games WHERE game_name = 'NBA 2k24'), (SELECT genre_id FROM REF_Genres WHERE genre_name = 'Sports')),
+((SELECT game_id FROM Games WHERE game_name = 'NBA 2k24'), (SELECT genre_id FROM REF_Genres WHERE genre_name = 'Simulation')),
+((SELECT game_id FROM Games WHERE game_name = 'NBA 2k24'), (SELECT genre_id FROM REF_Genres WHERE genre_name = 'Adventure')),
+((SELECT game_id FROM Games WHERE game_name = 'Left 4 Dead 2'), (SELECT genre_id FROM REF_Genres WHERE genre_name = 'First Person Shooter')),
+((SELECT game_id FROM Games WHERE game_name = 'Left 4 Dead 2'), (SELECT genre_id FROM REF_Genres WHERE genre_name = 'Survival')),
+((SELECT game_id FROM Games WHERE game_name = 'Left 4 Dead 2'), (SELECT genre_id FROM REF_Genres WHERE genre_name = 'Adventure')),
+((SELECT game_id FROM Games WHERE game_name = 'Minecraft: Bedrock Edition'), (SELECT genre_id FROM REF_Genres WHERE genre_name = 'Sandbox')),
+((SELECT game_id FROM Games WHERE game_name = 'Minecraft: Bedrock Edition'), (SELECT genre_id FROM REF_Genres WHERE genre_name = 'Adventure')),
+((SELECT game_id FROM Games WHERE game_name = 'Minecraft: Bedrock Edition'), (SELECT genre_id FROM REF_Genres WHERE genre_name = 'Survival')),
+((SELECT game_id FROM Games WHERE game_name = 'Minecraft: Bedrock Edition'), (SELECT genre_id FROM REF_Genres WHERE genre_name = 'Simulation')),
+((SELECT game_id FROM Games WHERE game_name = 'Dota 2'), (SELECT genre_id FROM REF_Genres WHERE genre_name = 'Action')),
+((SELECT game_id FROM Games WHERE game_name = 'Dota 2'), (SELECT genre_id FROM REF_Genres WHERE genre_name = 'Strategy')),
+((SELECT game_id FROM Games WHERE game_name = 'Genshin Impact'), (SELECT genre_id FROM REF_Genres WHERE genre_name = 'Adventure')),
+((SELECT game_id FROM Games WHERE game_name = 'Genshin Impact'), (SELECT genre_id FROM REF_Genres WHERE genre_name = 'Role Playing Game')),
+((SELECT game_id FROM Games WHERE game_name = 'Genshin Impact'), (SELECT genre_id FROM REF_Genres WHERE genre_name = 'Puzzle'));	
 
 -- Game_Platforms Data Sets 
-SELECT game_id FROM Games WHERE game_name = 'Left 4 Dead 2';
-SELECT platform_id FROM ref_platforms WHERE platform_name = 'Steam';
-INSERT INTO Game_Platforms (game_id, platform_id) VALUES (game_id, platform_id);
-SELECT platform_id FROM ref_platforms WHERE platform_name = 'macOS';
-INSERT INTO Game_Platforms (game_id, platform_id) VALUES (game_id, platform_id);
-SELECT platform_id FROM ref_platforms WHERE platform_name = 'Linux';
-INSERT INTO Game_Platforms (game_id, platform_id) VALUES (game_id, platform_id);
-SELECT platform_id FROM ref_platforms WHERE platform_name = 'Microsoft Windows';
-INSERT INTO Game_Platforms (game_id, platform_id) VALUES (game_id, platform_id);
-SELECT platform_id FROM ref_platforms WHERE platform_name = 'Xbox';
-INSERT INTO Game_Platforms (game_id, platform_id) VALUES (game_id, platform_id);
 
-SELECT game_id FROM Games WHERE game_name = 'Genshin Impact';
-SELECT platform_id FROM ref_platforms WHERE platform_name = 'Microsoft Windows';
-INSERT INTO Game_Platforms (game_id, platform_id) VALUES (game_id, platform_id);
-SELECT platform_id FROM ref_platforms WHERE platform_name = 'Playstation 5';
-INSERT INTO Game_Platforms (game_id, platform_id) VALUES (game_id, platform_id);
-SELECT platform_id FROM ref_platforms WHERE platform_name = 'Android';
-INSERT INTO Game_Platforms (game_id, platform_id) VALUES (game_id, platform_id);
-SELECT platform_id FROM ref_platforms WHERE platform_name = 'iOS';
-INSERT INTO Game_Platforms (game_id, platform_id) VALUES (game_id, platform_id);
-SELECT platform_id FROM ref_platforms WHERE platform_name = 'Xbox 360';
-INSERT INTO Game_Platforms (game_id, platform_id) VALUES (game_id, platform_id);
-
-SELECT game_id FROM Games WHERE game_name = 'Minecraft';
-SELECT platform_id FROM ref_platforms WHERE platform_name = 'Microsoft Windows';
-INSERT INTO Game_Platforms (game_id, platform_id) VALUES (game_id, platform_id);
-SELECT platform_id FROM ref_platforms WHERE platform_name = 'macOS';
-INSERT INTO Game_Platforms (game_id, platform_id) VALUES (game_id, platform_id);
-SELECT platform_id FROM ref_platforms WHERE platform_name = 'iOS';
-INSERT INTO Game_Platforms (game_id, platform_id) VALUES (game_id, platform_id);
-SELECT platform_id FROM ref_platforms WHERE platform_name = 'Android';
-INSERT INTO Game_Platforms (game_id, platform_id) VALUES (game_id, platform_id);
-SELECT platform_id FROM ref_platforms WHERE platform_name = 'PlayStation 5';
-INSERT INTO Game_Platforms (game_id, platform_id) VALUES (game_id, platform_id);
-SELECT platform_id FROM ref_platforms WHERE platform_name = 'Xbox 360';
-INSERT INTO Game_Platforms (game_id, platform_id) VALUES (game_id, platform_id);
-SELECT platform_id FROM ref_platforms WHERE platform_name = 'Linux';
-INSERT INTO Game_Platforms (game_id, platform_id) VALUES (game_id, platform_id);
-
-SELECT game_id FROM Games WHERE game_name = 'NBA 2k24';
-SELECT platform_id FROM ref_platforms WHERE platform_name = 'Microsoft Windows';
-INSERT INTO Game_Platforms (game_id, platform_id) VALUES (game_id, platform_id);
-SELECT platform_id FROM ref_platforms WHERE platform_name = 'PlayStation 5';
-INSERT INTO Game_Platforms (game_id, platform_id) VALUES (game_id, platform_id);
-SELECT platform_id FROM ref_platforms WHERE platform_name = 'Nintendo Switch';
-INSERT INTO Game_Platforms (game_id, platform_id) VALUES (game_id, platform_id);
-
-SELECT game_id FROM Games WHERE game_name = 'Dota 2';
-SELECT platform_id FROM ref_platforms WHERE platform_name = 'Microsoft Windows';
-INSERT INTO Game_Platforms (game_id, platform_id) VALUES (game_id, platform_id);
-SELECT platform_id FROM ref_platforms WHERE platform_name = 'macOS';
-INSERT INTO Game_Platforms (game_id, platform_id) VALUES (game_id, platform_id);
-SELECT platform_id FROM ref_platforms WHERE platform_name = 'Linux';
+INSERT INTO Game_Platforms (game_id, platform_id) VALUES 
+((SELECT game_id FROM Games WHERE game_name = 'Left 4 Dead 2'), (SELECT platform_id FROM ref_platforms WHERE platform_name = 'macOS')),
+((SELECT game_id FROM Games WHERE game_name = 'Left 4 Dead 2'), (SELECT platform_id FROM ref_platforms WHERE platform_name = 'Linux')),
+((SELECT game_id FROM Games WHERE game_name = 'Left 4 Dead 2'), (SELECT platform_id FROM ref_platforms WHERE platform_name = 'Microsoft Windows')),
+((SELECT game_id FROM Games WHERE game_name = 'Left 4 Dead 2'), (SELECT platform_id FROM ref_platforms WHERE platform_name = 'Xbox 360')),
+((SELECT game_id FROM Games WHERE game_name = 'Genshin Impact'), (SELECT platform_id FROM ref_platforms WHERE platform_name = 'Microsoft Windows')),
+((SELECT game_id FROM Games WHERE game_name = 'Genshin Impact'), (SELECT platform_id FROM ref_platforms WHERE platform_name = 'Playstation 5')),
+((SELECT game_id FROM Games WHERE game_name = 'Genshin Impact'), (SELECT platform_id FROM ref_platforms WHERE platform_name = 'Android')),
+((SELECT game_id FROM Games WHERE game_name = 'Genshin Impact'), (SELECT platform_id FROM ref_platforms WHERE platform_name = 'iOS')),
+((SELECT game_id FROM Games WHERE game_name = 'Genshin Impact'), (SELECT platform_id FROM ref_platforms WHERE platform_name = 'Xbox 360')),
+((SELECT game_id FROM Games WHERE game_name = 'Minecraft: Bedrock Edition'), (SELECT platform_id FROM ref_platforms WHERE platform_name = 'Microsoft Windows')),
+((SELECT game_id FROM Games WHERE game_name = 'Minecraft: Bedrock Edition'), (SELECT platform_id FROM ref_platforms WHERE platform_name = 'macOS')),
+((SELECT game_id FROM Games WHERE game_name = 'Minecraft: Bedrock Edition'), (SELECT platform_id FROM ref_platforms WHERE platform_name = 'iOS')),
+((SELECT game_id FROM Games WHERE game_name = 'Minecraft: Bedrock Edition'), (SELECT platform_id FROM ref_platforms WHERE platform_name = 'Android')),
+((SELECT game_id FROM Games WHERE game_name = 'Minecraft: Bedrock Edition'), (SELECT platform_id FROM ref_platforms WHERE platform_name = 'PlayStation 5')),
+((SELECT game_id FROM Games WHERE game_name = 'Minecraft: Bedrock Edition'), (SELECT platform_id FROM ref_platforms WHERE platform_name = 'Xbox 360')),
+((SELECT game_id FROM Games WHERE game_name = 'Minecraft: Bedrock Edition'), (SELECT platform_id FROM ref_platforms WHERE platform_name = 'Linux')),
+((SELECT game_id FROM Games WHERE game_name = 'NBA 2k24'), (SELECT platform_id FROM ref_platforms WHERE platform_name = 'Microsoft Windows')),
+((SELECT game_id FROM Games WHERE game_name = 'NBA 2k24'), (SELECT platform_id FROM ref_platforms WHERE platform_name = 'PlayStation 5')),
+((SELECT game_id FROM Games WHERE game_name = 'NBA 2k24'), (SELECT platform_id FROM ref_platforms WHERE platform_name = 'Nintendo Switch')),
+((SELECT game_id FROM Games WHERE game_name = 'Dota 2'), (SELECT platform_id FROM ref_platforms WHERE platform_name = 'Microsoft Windows')),
+((SELECT game_id FROM Games WHERE game_name = 'Dota 2'), (SELECT platform_id FROM ref_platforms WHERE platform_name = 'macOS')),
+((SELECT game_id FROM Games WHERE game_name = 'Dota 2'), (SELECT platform_id FROM ref_platforms WHERE platform_name = 'Linux'));
 
 -- Reviews Data Sets
+INSERT INTO Reviews (game_id, user_id, review, rating)
+VALUES ((SELECT game_id FROM Games WHERE game_name = 'Left 4 Dead 2'), ((SELECT user_id FROM Users WHERE first_name = 'Marian' AND last_name = 'Salazar')),
+'Even though the graphics are from 2009, the game still looks and feels atmospheric. The swamp forest, abandoned streets, and eerie carnival levels are dripping with detail. 
+The lighting and weather effects add to the tension, especially during intense events where the horde comes crashing in.', 10),
+((SELECT game_id FROM Games WHERE game_name = 'Genshin Impact'), ((SELECT user_id FROM Users WHERE contact_email = 'erika_chua@yahoo.com')),
+'Genshin Impact offers a beautiful open world with fun combat and exploration. The elemental system adds some depth, but the gacha mechanics can feel frustrating. While the story and characters are charming, 
+the grind for resources and repetitive events hold it back. Overall, it’s a solid game with room for improvement', 7),
+((SELECT game_id FROM Games WHERE game_name = 'Minecraft: Bedrock Edition'), (SELECT user_id FROM Users WHERE first_name = 'Francisco' AND last_name = 'Manuel'),
+'Minecraft is a timeless masterpiece that offers endless creativity and freedom. Whether you’re building, exploring, or surviving, the game’s limitless possibilities keep it fresh and exciting. 
+With constant updates and a thriving community, it never gets old. An absolute 10/10—a must-play for gamers of all ages!', 10),
+((SELECT game_id FROM Games WHERE game_name = 'NBA 2k24'), (SELECT user_id FROM Users WHERE contact_email = 'maximo19@gmail.com'),
+'NBA 2K24 looks good, but it feels more of the same. The graphics are sharp, and the gameplay is smooth, but the microtransactions are frustrating. It’s fun for a bit, but it gets repetitive fast. 
+Unless you’re a hardcore fan, it’s just okay.', 5),
+((SELECT game_id FROM Games WHERE game_name = 'Dota 2'), (SELECT user_id FROM Users WHERE first_name = 'Christian' AND last_name = 'Tan'),
+'Dota 2 is an absolute blast. The depth of strategy and variety of heroes make every match feel unique. The teamwork and skill needed keep it exciting, and winning a tough game is super satisfying. 
+The learning curve is steep, but once you get the hang of it, it’s hard to stop playing', 9);
+
+INSERT INTO Transactions (game_id, user_id, transaction_amount, transaction_date, online_url, transaction_status)
+VALUES ((SELECT game_id FROM Games WHERE game_name = 'Left 4 Dead 2'), ((SELECT user_id FROM Users WHERE first_name = 'Marian' AND last_name = 'Salazar')),
+(SELECT method_id FROM REF_Methods WHERE method_name = 'Credit Card'), 335.00,  2021-01-28, 'https://www.visa.com/transaction/confirm?trx_id=TXN123456789&user_id=6001&status=completed', 'completed'),
+((SELECT game_id FROM Games WHERE game_name = 'Genshin Impact'), ((SELECT user_id FROM Users WHERE first_name = 'Marian' AND last_name = 'Salazar')),
+(SELECT method_id FROM REF_Methods WHERE method_name = 'GCash'), 2024-09-30, 'https://www.gcash.com/transaction/confirm?trx_id=TXN123456789&user_id=6001&status=completed', 'completed');
