@@ -53,19 +53,11 @@ VALUES
 
 -- Wallet Data Sets
 INSERT INTO Wallets (wallet_balance, user_id)
-VALUES (5000.31,(SELECT user_id FROM Users WHERE first_name = 'Francisco' LIMIT 1));
-
-INSERT INTO Wallets (wallet_balance, user_id)
-VALUES (12700.25,(SELECT user_id FROM Users WHERE first_name = 'Erika' LIMIT 1));
-
-INSERT INTO Wallets (wallet_balance, user_id)
-VALUES (748.00,(SELECT user_id FROM Users WHERE first_name = 'Maximus' LIMIT 1));
-
-INSERT INTO Wallets (wallet_balance, user_id)
-VALUES (2089.13,(SELECT user_id FROM Users WHERE first_name = 'Christian' LIMIT 1));
-
-INSERT INTO Wallets (wallet_balance, user_id)
-VALUES (14328.15,(SELECT user_id FROM Users WHERE first_name = 'Marian' LIMIT 1));
+VALUES (5000.31,(SELECT user_id FROM Users WHERE first_name = 'Francisco' LIMIT 1)),
+(12700.25,(SELECT user_id FROM Users WHERE first_name = 'Erika' LIMIT 1)),
+(748.00,(SELECT user_id FROM Users WHERE first_name = 'Maximus' LIMIT 1)),
+(2089.13,(SELECT user_id FROM Users WHERE first_name = 'Christian' LIMIT 1)),
+(14328.15,(SELECT user_id FROM Users WHERE first_name = 'Marian' LIMIT 1));
 
 -- Patches Insertion
 INSERT INTO Patches (game_id, patch_title, patch_date, patch_time, patch_description)
@@ -157,25 +149,25 @@ INSERT INTO Game_Platforms (game_id, platform_id) VALUES
 ((SELECT game_id FROM Games WHERE game_name = 'Dota 2'), (SELECT platform_id FROM ref_platforms WHERE platform_name = 'Linux'));
 
 -- Reviews Data Sets
-INSERT INTO Reviews (game_id, user_id, review, rating)
-VALUES ((SELECT game_id FROM Games WHERE game_name = 'Left 4 Dead 2'), ((SELECT user_id FROM Users WHERE first_name = 'Marian' AND last_name = 'Salazar')),
+INSERT INTO Reviews (game_id, user_id, rating, review_text, review_date)
+VALUES ((SELECT game_id FROM Games WHERE game_name = 'Left 4 Dead 2'), ((SELECT user_id FROM Users WHERE first_name = 'Marian' AND last_name = 'Salazar')), 10,
 'Even though the graphics are from 2009, the game still looks and feels atmospheric. The swamp forest, abandoned streets, and eerie carnival levels are dripping with detail. 
-The lighting and weather effects add to the tension, especially during intense events where the horde comes crashing in.', 10),
-((SELECT game_id FROM Games WHERE game_name = 'Genshin Impact'), ((SELECT user_id FROM Users WHERE contact_email = 'erika_chua@yahoo.com')),
+The lighting and weather effects add to the tension, especially during intense events where the horde comes crashing in.'),
+((SELECT game_id FROM Games WHERE game_name = 'Genshin Impact'), ((SELECT user_id FROM Users WHERE contact_email = 'erika_chua@yahoo.com')), 7,
 'Genshin Impact offers a beautiful open world with fun combat and exploration. The elemental system adds some depth, but the gacha mechanics can feel frustrating. While the story and characters are charming, 
-the grind for resources and repetitive events hold it back. Overall, it’s a solid game with room for improvement', 7),
-((SELECT game_id FROM Games WHERE game_name = 'Minecraft: Bedrock Edition'), (SELECT user_id FROM Users WHERE first_name = 'Francisco' AND last_name = 'Manuel'),
+the grind for resources and repetitive events hold it back. Overall, it’s a solid game with room for improvement'),
+((SELECT game_id FROM Games WHERE game_name = 'Minecraft: Bedrock Edition'), (SELECT user_id FROM Users WHERE first_name = 'Francisco' AND last_name = 'Manuel'), 10,
 'Minecraft is a timeless masterpiece that offers endless creativity and freedom. Whether you’re building, exploring, or surviving, the game’s limitless possibilities keep it fresh and exciting. 
-With constant updates and a thriving community, it never gets old. An absolute 10/10—a must-play for gamers of all ages!', 10),
-((SELECT game_id FROM Games WHERE game_name = 'NBA 2k24'), (SELECT user_id FROM Users WHERE contact_email = 'maximo19@gmail.com'),
+With constant updates and a thriving community, it never gets old. An absolute 10/10—a must-play for gamers of all ages!'),
+((SELECT game_id FROM Games WHERE game_name = 'NBA 2k24'), (SELECT user_id FROM Users WHERE contact_email = 'maximo19@gmail.com'), 5,
 'NBA 2K24 looks good, but it feels more of the same. The graphics are sharp, and the gameplay is smooth, but the microtransactions are frustrating. It’s fun for a bit, but it gets repetitive fast. 
-Unless you’re a hardcore fan, it’s just okay.', 5),
-((SELECT game_id FROM Games WHERE game_name = 'Dota 2'), (SELECT user_id FROM Users WHERE first_name = 'Christian' AND last_name = 'Tan'),
+Unless you’re a hardcore fan, it’s just okay.'),
+((SELECT game_id FROM Games WHERE game_name = 'Dota 2'), (SELECT user_id FROM Users WHERE first_name = 'Christian' AND last_name = 'Tan'), 9,
 'Dota 2 is an absolute blast. The depth of strategy and variety of heroes make every match feel unique. The teamwork and skill needed keep it exciting, and winning a tough game is super satisfying. 
-The learning curve is steep, but once you get the hang of it, it’s hard to stop playing', 9);
+The learning curve is steep, but once you get the hang of it, it’s hard to stop playing');
 
-INSERT INTO Transactions (game_id, user_id, transaction_amount, transaction_date, online_url, transaction_status)
+INSERT INTO Transactions (game_id, user_id, transaction_amount, transaction_date, transaction_status)
 VALUES ((SELECT game_id FROM Games WHERE game_name = 'Left 4 Dead 2'), ((SELECT user_id FROM Users WHERE first_name = 'Marian' AND last_name = 'Salazar')),
-(SELECT method_id FROM REF_Methods WHERE method_name = 'Credit Card'), 335.00,  2021-01-28, 'https://www.visa.com/transaction/confirm?trx_id=TXN123456789&user_id=6001&status=completed', 'completed'),
+(SELECT method_id FROM REF_Methods WHERE method_name = 'Credit Card'), 335.00,  2021-01-28,  'completed'),
 ((SELECT game_id FROM Games WHERE game_name = 'Genshin Impact'), ((SELECT user_id FROM Users WHERE first_name = 'Marian' AND last_name = 'Salazar')),
-(SELECT method_id FROM REF_Methods WHERE method_name = 'GCash'), 2024-09-30, 'https://www.gcash.com/transaction/confirm?trx_id=TXN123456789&user_id=6001&status=completed', 'completed');
+(SELECT method_id FROM REF_Methods WHERE method_name = 'GCash'), 2024-09-30, 'completed');
