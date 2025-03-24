@@ -106,7 +106,6 @@ CREATE TABLE Transactions (
     method_id INT(5),
     transaction_amount DECIMAL(9,2),
     transaction_date DATE,
-    online_url VARCHAR(100),
     transaction_status ENUM('completed','pending','failed'),
     FOREIGN KEY (game_id) REFERENCES Games(game_id),
     FOREIGN KEY (user_id) REFERENCES Users(user_id)
