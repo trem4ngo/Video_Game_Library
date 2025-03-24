@@ -1,0 +1,18 @@
+📦 Video_Game_Library
+ ┣ 📂 src
+ ┃ ┣ 📂 model
+ ┃ ┃ ┗ 📜 ...Model.java
+ ┃ ┣ 📂 view
+ ┃ ┃ ┗ 📜 ...View.java
+ ┃ ┣ 📂 controller
+ ┃ ┃ ┗ 📜 ...Controller.java
+ ┃ ┣ 📂 database
+ ┃ ┃ ┗ 📜 DatabaseConnection.java
+ ┃ ┣ 📜 Main.java
+ ┣ 📂 sql
+ ┃ ┣ 📜 gamelibrary.sql
+ ┃ ┗ 📜 gamelibrarydatasets.sql
+ ┣ 📂 lib
+ ┃ ┗ 📜 mysql-connector-java.jar
+ ┣ 📜 README.md
+ ┗ 📜 .gitignore
